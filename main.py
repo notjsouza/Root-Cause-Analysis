@@ -11,9 +11,6 @@ from tensorflow import keras
 # Loading Datasheet into a Pandas Dataframe
 data = pd.read_csv("root_cause_analysis.csv")
 
-# Testing Data Output
-# print(data.dtypes)
-
 data.head()
 encoder = preprocessing.LabelEncoder()
 data['ROOT_CAUSE'] = encoder.fit_transform(data['ROOT_CAUSE'])
@@ -30,10 +27,6 @@ y_data = tf.keras.utils.to_categorical(y_data, 3)
 
 # Split Training and Testing Data
 x_train, x_test, y_train, y_test = train_test_split(x_data, y_data, test_size=0.1)
-
-# Testing Output
-# print("Shape of feature variables:", x_train.shape)
-# print("Shape of target variable:", y_train.shape)
 
 # Training parameters
 EPOCHS = 20
@@ -69,8 +62,8 @@ print(encoder.inverse_transform(prediction))
 
 # Creates Predictions for Multiple Test Cases
 print(encoder.inverse_transform(np.argmax(model.predict(
-    [[1, 0, 0, 0, 1, 1, 0],
-    [0, 1, 1, 1, 0, 0, 0],
-    [1, 1, 0, 1, 1, 0, 1],
-    [0, 0, 0, 0, 0, 1, 0],
-    [1, 0, 1, 0, 1, 1, 1]]), axis=1)))
+    [[0, 1, 1, 1, 0, 0, 0],
+     [1, 0, 1, 0, 1, 1, 1]
+     [1, 1, 0, 1, 1, 0, 1],
+     [0, 0, 0, 0, 0, 1, 0],
+     [1, 0, 0, 0, 1, 1, 0]]), axis=1)))
