@@ -63,7 +63,7 @@ print(encoder.inverse_transform(prediction))
 # Creates Predictions for Multiple Test Cases
 print(encoder.inverse_transform(np.argmax(model.predict(
     [[0, 1, 1, 1, 0, 0, 0],
-     [1, 0, 1, 0, 1, 1, 1]
+     [1, 0, 1, 0, 1, 1, 1],
      [1, 1, 0, 1, 1, 0, 1],
      [0, 0, 0, 0, 0, 1, 0],
      [1, 0, 0, 0, 1, 1, 0]]), axis=1)))
